@@ -1,0 +1,31 @@
+body {
+    background-image: ;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Niramit', sans-serif;
+    background: url('../pictures/background.png');
+}
+
+a {
+    margin: 0px;
+    position: relative;
+    float: right;
+    top: 15px;
+    right: 15px;
+}
+
+.cart {
+    width: 40px;
+}
+
+h1 {
+    position: relative;
+    top: 50px;
+    font-size: 90px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgb(151, 76, 49) 4px 6px 5px;
+    font-variant: small-caps;
+    color: coral;
+    letter-spacing: 8px;
+}
