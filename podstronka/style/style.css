@@ -1,5 +1,4 @@
 body {
-    background-color: white;
     margin: 0px;
     padding: 0px;
     font-family: 'Niramit', sans-serif;
@@ -7,16 +6,67 @@ body {
 }
 
 a {
-    /*???*/
     margin: 0px;
-    position: relative;
+    position: sticky;
     float: right;
     top: 15px;
     right: 15px;
 }
 
 .back {
-    width: 50px;
+    width: 40px;
+}
+
+h1 {
+    position: relative;
+    margin: auto;
+    width: 50%;
+    top: 50px;
+    font-size: 90px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgb(151, 76, 49) 4px 6px 5px;
+    font-variant: small-caps;
+    color: coral;
+    letter-spacing: 18px;
+}
+
+.my-items-box {
+    height: 800px;
+    width: 80%;
+    margin: 80px auto 40px;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.55);
+    border: solid rgb(172, 172, 172) 1px;
+    box-shadow: rgb(170, 103, 79) 3px 4px 8px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .bought {
+    height: 80px;
+    width: 90%;
+    align-items:center;??
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.55);
+    border: solid rgb(172, 172, 172) 1px;
+    box-shadow: rgb(170, 103, 79) 3px 4px 8px;
+    border-radius: 10px;
+} */
+
+h2 {
+    margin: 0px;
+    padding: 0px;
+    position: sticky;
+    top: 65px;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgb(151, 76, 49) 2px 4px 3px;
+    font-variant: small-caps;
+    letter-spacing: 8px;
+    color: coral;
 }
 
 /* .hover-info {
@@ -29,51 +79,10 @@ a {
     /* width: 50px;
     display: block;
     border: solid 1px lightgrey;
-    box-shadow: 2px 3px 8px;
+    box-shadow: 1px 2px 4px;
     border-radius: 8px;
 }
     
   /* a:hover + .hover-info {
     display: block;
   } */
-
-h1 {
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    top: 50px;
-    font-size: 90px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: rgb(151, 76, 49) 4px 6px 5px;
-    font-variant: small-caps;
-    letter-spacing: 8px;
-    color: coral;
-}
-
-.my-items-box {
-    position: relative;
-    top: 60px;
-    margin: auto;
-    padding: 0px;
-    background-color: white;
-    width: 80%;
-    height: 200px;
-    opacity: 0.5;   /*???*/
-    border: solid rgb(172, 172, 172) 1px;
-    box-shadow: rgb(170, 103, 79) 3px 4px 8px;
-}
-
-h2 {
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    top: 65px;
-    font-size: 45px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: rgb(151, 76, 49) 2px 4px 3px;
-    font-variant: small-caps;
-    letter-spacing: 5px;
-    color: coral;
-}

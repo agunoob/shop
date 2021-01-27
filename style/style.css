@@ -1,5 +1,4 @@
 body {
-    background-image: ;
     margin: 0px;
     padding: 0px;
     font-family: 'Niramit', sans-serif;
@@ -8,7 +7,7 @@ body {
 
 a {
     margin: 0px;
-    position: relative;
+    position: sticky;
     float: right;
     top: 15px;
     right: 15px;
@@ -20,6 +19,8 @@ a {
 
 h1 {
     position: relative;
+    margin: auto;
+    width: 50%;
     top: 50px;
     font-size: 90px;
     font-weight: bold;
@@ -27,5 +28,52 @@ h1 {
     text-shadow: rgb(151, 76, 49) 4px 6px 5px;
     font-variant: small-caps;
     color: coral;
-    letter-spacing: 8px;
+    letter-spacing: 18px;
+}
+
+.products-box {
+    height: 1600px;
+    width: 70%;
+    margin: 80px auto 40px;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.55);
+    border: solid rgb(172, 172, 172) 1px;
+    box-shadow: rgb(170, 103, 79) 3px 4px 8px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product {
+    margin: auto;
+    height: 400px;
+    width: 50%;
+    /* align-items:center; */
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.55);
+    border: solid rgb(172, 172, 172) 1px;
+    box-shadow: rgb(170, 103, 79) 3px 4px 8px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    padding: 0px;
+    margin: auto;
+    /* height: 10px; */
+}
+
+.add {
+    height: 30px;
+    box-shadow: slategrey 3px 3px 4px;
+    border-radius: 50%;
+}
+
+.add:hover {
+    box-shadow: none;
+}
+
+.photo {
+    height: 200px;
 }
