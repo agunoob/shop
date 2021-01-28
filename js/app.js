@@ -12,7 +12,7 @@ let products =
         "size": "17cmx10cm",
         "quantity": "6 elements"
     },
-    {
+    ,{
         "picture": "../sklep/pictures/ruler.jpg",
         "name": "Ruler",
         "price": "4,80zł",
@@ -32,5 +32,12 @@ let products =
     }
 ];
 
-JSON.parse();
-
+//przechowywanie danych
+let myJSON = JSON.stringify(products);
+localStorage.setItem("testJSON", myJSON);
+//wyciagniecie danych
+let cosik = localStorage.getItem("testJSON");
+let objekt = JSON.parse(cosik);
+//zmiana innerHTML
+let cena= document.getElementsByClassName('price');
+cena[1].innerHTML= objekt[0].price;

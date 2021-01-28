@@ -4,21 +4,32 @@
         <meta charset="utf-8">
         <title>Stationery online shop</title>
         <link rel="stylesheet" type="text/css" href="style/style.css">
-        <script src="js/app.js"></script>
+        <!-- <script src="js/app.js"></script> -->
         <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
         <a href="file:///home/agu/Desktop/praca/sklep/podstronka/index.html"><img src="../sklep/icons/cart.png" class="cart"></a>
         <h1>Stationery</h1>
         <div class="products-box">
-            <div class="product pencils">
+            <div id="pencils" class="product">
                 <img class="description photo" src="" alt="zdjecie">
                 <p class="description name">nazwa produktu</p>
                 <p class="description price">cena</p>
                 <img onclick="add()" class="description add" src="../sklep/icons/plus.png">
             </div>
-            <div class="product ruler"></div>
-            <div class="product notebook"></div>
+            <div id="ruler" class="product">
+                <img class="description photo" src="" alt="zdjecie">
+                <p class="description name"></p>
+                <p class="description price"></p>
+                <img onclick="add()" class="description add" src="../sklep/icons/plus.png">
+            </div>
+            <div id="notebook" class="product">
+                <img class="description photo" src="" alt="zdjecie">
+                <p class="description name"></p>
+                <p class="description price"></p>
+                <img onclick="add()" class="description add" src="../sklep/icons/plus.png">
+            </div>
         </div>
+        <script src="js/app.js"></script>
     </body>
 </html>
