@@ -11,6 +11,7 @@ a {
     float: right;
     top: 15px;
     right: 15px;
+    z-index: 8;
 }
 
 .cart {
@@ -46,7 +47,7 @@ h1 {
 
 .product {
     margin: auto;
-    height: 400px;
+    height: 450px;
     width: 50%;
     /* align-items:center; */
     padding: 0px;
@@ -76,8 +77,8 @@ h1 {
 }
 
 .photo {
-    max-height: 200px;
-    max-width: 400px;
+    max-height: 250px;
+    max-width: 80%;
 }
 
 .photo:hover {
@@ -86,4 +87,18 @@ h1 {
 
 .letters {
     font-size: 20px;
+}
+
+.more {
+    position: absolute;
+    margin: auto;
+    height: 90%;
+    width: 90%;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(172, 172, 172) 1px;
+    box-shadow: rgb(170, 103, 79) 3px 4px 8px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
