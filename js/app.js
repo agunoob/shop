@@ -21,7 +21,7 @@ let test = {
             "material": "plastic",
             "size": "20cmx4cm",
             "quantity": "1",
-            "available": true,
+            "available": false,
             "add": "../sklep/icons/plus.png"
         },
         {
@@ -59,53 +59,77 @@ for (let i in myObj.products) {
     let createDiv = document.createElement('div');
     let newDiv= document.getElementById('products-box').appendChild(createDiv);
     newDiv.classList.add('product');
-        //klik w div zaby pokazac wiekszy opis
-        newDiv.onclick = function showMore () {
-            console.log('wyswietl wiekszy opis');
-            let createDivShowMore = document.createElement('div');
-            let divShowMore= document.body.appendChild(createDivShowMore);
-            divShowMore.classList.add('more');
-                //wyswietl w divie nazwe
-                let createPNext = document.createElement('p');
-                let PNext= divShowMore.appendChild(createPNext);
-                PNext.classList.add('description', 'letters');
-                PNext.innerHTML= myObj.products[i].name;
-                //wyswietl w divie cene
-                let createAnotherPNext = document.createElement('p');
-                let AnotherPNext= divShowMore.appendChild(createAnotherPNext);
-                AnotherPNext.classList.add('description', 'letters');
-                AnotherPNext.innerHTML= myObj.products[i].price;
-                //wyswietl w divie kolor
-                let createPA = document.createElement('p');
-                let pA= divShowMore.appendChild(createPA);
-                pA.classList.add('description', 'letters');
-                pA.innerHTML= myObj.products[i].color;
-                 //wyswietl w divie material
-                 let createPB = document.createElement('p');
-                 let pB= divShowMore.appendChild(createPB);
-                 pB.classList.add('description', 'letters');
-                 pB.innerHTML= myObj.products[i].material;
-                  //wyswietl w divie size
-                let createPC = document.createElement('p');
-                let pC= divShowMore.appendChild(createPC);
-                pC.classList.add('description', 'letters');
-                pC.innerHTML= myObj.products[i].size;
-                 //wyswietl w divie zawartosc
-                 let createPD = document.createElement('p');
-                 let pD= divShowMore.appendChild(createPD);
-                 pD.classList.add('description', 'letters');
-                 pD.innerHTML= myObj.products[i].quantity;
-                  //wyswietl w divie dostepnosc
-                let createPE = document.createElement('p');
-                let pE= divShowMore.appendChild(createPE);
-                pE.classList.add('description', 'letters');
-                pE.innerHTML= myObj.products[i].available;
-                // wyswietl przycisk add 
-                let createAnotherImg = document.createElement('img');
-                let ImgNext= divShowMore.appendChild(createAnotherImg);
-                ImgNext.classList.add('description', 'add');
-                ImgNext.src= myObj.products[i].add;
-            };
+    //klik w ten [i] div modal zaby pokazac wiekszy opis
+    newDiv.onclick = function showMore () {
+        //stworz modal background
+        let createDivModal = document.createElement('div');
+        let divModal= document.body.appendChild(createDivModal);
+        divModal.classList.add('modal-background');
+        // document.querySelector('.modal-background').style.visibility = 'visible';
+        //div modal
+        let createDivShowMore = document.createElement('div');
+        let divShowMore= createDivModal.appendChild(createDivShowMore);
+        divShowMore.classList.add('more');
+        //wyswietl przycisk exit
+        let createPExit = document.createElement('p');
+        let PExit= divShowMore.appendChild(createPExit);
+        PExit.classList.add('exit');
+        PExit.innerHTML= 'x';
+        //schowaj
+        PExit.onclick = function hide() {
+        console.log('schowaj sie błagam');
+        divModal.style.display= 'none';
+        }
+        //wyswietl zdjecie
+        let createModalImg = document.createElement('img');
+        let modalImg= divShowMore.appendChild(createModalImg);
+        modalImg.classList.add('description', 'photo');
+        modalImg.src= myObj.products[i].picture;
+        //wyswietl nazwe
+        let createPNext = document.createElement('p');
+        let PNext= divShowMore.appendChild(createPNext);
+        PNext.classList.add('description', 'letters', 'letters-more');
+        PNext.innerHTML= 'name: ' + myObj.products[i].name;
+        //wyswietl cene
+        let createAnotherPNext = document.createElement('p');
+        let AnotherPNext= divShowMore.appendChild(createAnotherPNext);
+        AnotherPNext.classList.add('description', 'letters', 'letters-more');
+        AnotherPNext.innerHTML= 'price: ' + myObj.products[i].price;
+        //wyswietl kolor
+        let createPA = document.createElement('p');
+        let pA= divShowMore.appendChild(createPA);
+        pA.classList.add('description', 'letters', 'letters-more');
+        pA.innerHTML= 'color: ' + myObj.products[i].color;
+        //wyswietl material
+        let createPB = document.createElement('p');
+        let pB= divShowMore.appendChild(createPB);
+        pB.classList.add('description', 'letters', 'letters-more');
+        pB.innerHTML= 'material: ' + myObj.products[i].material;
+        //wyswietl rozmiar
+        let createPC = document.createElement('p');
+        let pC= divShowMore.appendChild(createPC);
+        pC.classList.add('description', 'letters', 'letters-more');
+        pC.innerHTML= 'size: ' + myObj.products[i].size;
+        //wyswietl zawartosc
+        let createPD = document.createElement('p');
+        let pD= divShowMore.appendChild(createPD);
+        pD.classList.add('description', 'letters', 'letters-more');
+        pD.innerHTML= 'quantity: ' + myObj.products[i].quantity;
+        //wyswietl dostepnosc
+        let createPE = document.createElement('p');
+        let pE= divShowMore.appendChild(createPE);
+        pE.classList.add('description', 'letters', 'letters-more');
+        if (myObj.products[i].available === true) {
+            pE.innerHTML= 'is it available: yes';
+        } else {
+            pE.innerHTML= 'is it available: no';
+        }
+        // wyswietl przycisk add 
+        let createAnotherImg = document.createElement('img');
+        let ImgNext= divShowMore.appendChild(createAnotherImg);
+        ImgNext.classList.add('description', 'add');
+        ImgNext.src= myObj.products[i].add;
+        };
     //stworz img produktu z klasa i wyswietl (zdjecie)
     let createImg = document.createElement('img');
     let newImg= newDiv.appendChild(createImg);
@@ -126,6 +150,7 @@ for (let i in myObj.products) {
     let newAnotherImg= newDiv.appendChild(createAnotherImg);
     newAnotherImg.classList.add('description', 'add');
     newAnotherImg.src= myObj.products[i].add;
+
         //klik w img zaby dodać do koszyka  ???????????????????????
         // newAnotherImg.onclick = function addToCart () {
         //     console.log('w to tez klikłem');
@@ -137,9 +162,4 @@ for (let i in myObj.products) {
     //     newP.classList.add('description');
     //     newP.innerHTML= myObj.products[i][j];
     // }
-     
-
-    // &times;
 }
-
-console.log(window.scrollY);
