@@ -2,7 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Niramit', sans-serif;
-    background: url('../pictures/background.png');
+    background: url('../../pictures/background/background.png');
 }
 
 a {
