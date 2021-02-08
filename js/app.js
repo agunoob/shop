@@ -1,6 +1,6 @@
 "use strict"
 
-let test = { 
+const baza = {
     "products":[
         {
             "gallery": [
@@ -24,7 +24,7 @@ let test = {
             "size": "17cmx10cm",
             "quantity": "6 elements",
             "available": true,
-            "addToCartModal": "add to cart",
+            "addToCartModal": "add to cart"
         },
         { 
             "gallery": [
@@ -48,7 +48,7 @@ let test = {
             "size": "20cmx4cm",
             "quantity": "1",
             "available": false,
-            "addToCartModal": "add to cart",
+            "addToCartModal": "add to cart"
         },
         {
             "gallery": [
@@ -72,33 +72,23 @@ let test = {
             "size": "A5 14.8cmx21cm",
             "quantity": "30 pages",
             "available": true,
-            "addToCartModal": "add to cart",
+            "addToCartModal": "add to cart"
         }
     ]
-};
+}
 
-//zmiana na string
-let myJSON = JSON.stringify(test);
-//do przechowania
-localStorage.setItem("testJSON", myJSON);
-//wyciagniecie danych ze schowka
-let getIt = localStorage.getItem("testJSON");
-//sparsowanie na obiekt javascript
-let myObj = JSON.parse(getIt);
-
+const myObj=dzejson(baza);
 
 // console.log('getIt:', getIt);    //to co wyciągniete ze schowka
 // console.log('myObj:', myObj);    //sparsowane
 // console.log('myObj.products:', myObj.products);    //tablica obiektów (3 obiekty)
 // console.log('myObj.products:', myObj.products[1].name);     //name z pierwszego obiektu z tablicy
 
-
-//stworz div z klasą i wyswietl dla kazdego [i]
 for (let i in myObj.products) {
     const createDiv = document.createElement('div');
     let newDiv= document.getElementById('products-box').appendChild(createDiv);
     newDiv.classList.add('product');
-    //klik w ten [i] div modal zaby pokazac wiekszy opis
+    //klik w produkt by otworzyc modal
     newDiv.onclick = function showMore () {
         //stworz modal background
         const createDivModal = document.createElement('div');
@@ -120,25 +110,41 @@ for (let i in myObj.products) {
         //schowaj, click poza modal
         window.onclick = function (event) {
             if (event.target == divModal) {
-              divModal.style.display = 'none';
+                divModal.style.display = 'none';
             }
         }
-
-        // //wyswietl zdjecie
-        for (let j in myObj.products[i].gallery) {
+            //wyswietl glowne zdjecie
             const createModalImg = document.createElement('img');
             let modalImg= divShowMore.appendChild(createModalImg);
             modalImg.classList.add('description', 'letters-more', 'photo-modal');
             modalImg.src= myObj.products[i].gallery[0].pic;
-            console.log('wyswietlam pierwsze zdjecie');
-            modalImg.onclick = function () {
-                for (let j=1; j<myObj.products[i].gallery.length; j++) {
-                    console.log(j);
-                    modalImg.src= myObj.products[i].gallery[j].pic;
-                }
+            //wyswietl zdjecie 1 w galerii
+            const createImgGal = document.createElement('img');
+            let imgGal= divShowMore.appendChild(createImgGal);
+            imgGal.classList.add('img-gal', 'gal');
+            imgGal.src= myObj.products[i].gallery[0].pic;
+            //klik w 1 zdjecie pojawia sie jako glowne
+            imgGal.onclick= function() {
+                modalImg.src= myObj.products[i].gallery[0].pic;
             }
-        }
-
+            //wyswietl zdjecie 2 w galerii
+            const createImgGalTwo = document.createElement('img');
+            let imgGalTwo= divShowMore.appendChild(createImgGalTwo);
+            imgGalTwo.classList.add('img-lle', 'gal');
+            imgGalTwo.src= myObj.products[i].gallery[1].pic;
+            //klik w 2 zdjecie pojawia sie jako glowne
+            imgGalTwo.onclick= function() {
+                modalImg.src= myObj.products[i].gallery[1].pic;
+            }
+            //wyswietl zdjecie 3 w galerii
+            const createImgGalThree = document.createElement('img');
+            let imgGalThree= divShowMore.appendChild(createImgGalThree);
+            imgGalThree.classList.add('img-ry', 'gal');
+            imgGalThree.src= myObj.products[i].gallery[2].pic;
+            //klik w 3 zdjecie pojawia sie jako glowne
+            imgGalThree.onclick= function() {
+                modalImg.src= myObj.products[i].gallery[2].pic;
+            }
         //wyswietl nazwe
         const createPNext = document.createElement('p');
         let PNext= divShowMore.appendChild(createPNext);
@@ -178,16 +184,7 @@ for (let i in myObj.products) {
         const createPE = document.createElement('p');
         let pE= divShowMore.appendChild(createPE);
         pE.classList.add('description', 'letters-more');
-        if (myObj.products[i].available === true) {
-            pE.innerHTML= 'available: yes';
-        } else {
-            pE.innerHTML= 'available: no';
-            addModal.style.backgroundColor='lightgrey';
-            addModal.style.boxShadow='none';
-            addModal.style.border='none';
-            addModal.style.color='grey';
-            addModal.style.cursor='not-allowed';
-        }
+        testFunction(myObj.products[i].available === true, addModal, pE, newDiv)
     };
     //stworz img produktu z klasa i wyswietl (zdjecie)
     const createImg = document.createElement('img');
@@ -210,3 +207,33 @@ for (let i in myObj.products) {
     newAnotherImg.classList.add('description', 'add');
     newAnotherImg.src= "../sklep/pictures/icons/plus.png";
 }
+
+
+
+function testFunction(isArgument, a, b) {
+    if (isArgument) {
+        b.innerHTML= 'available: yes';
+    } else {
+        b.innerHTML= 'available: no';
+        a.style.backgroundColor='lightgrey';
+        a.style.boxShadow='none';
+        a.style.border='none';
+        a.style.color='grey';
+        a.style.cursor='not-allowed';
+    }
+
+}
+
+function dzejson(bazaJSON){
+    console.log(bazaJSON);
+    //zmiana na string
+    const myJSON = JSON.stringify(bazaJSON);
+    //do przechowania
+    localStorage.setItem("testJSON", myJSON);
+    //wyciagniecie danych ze schowka
+    const getIt = localStorage.getItem("testJSON");
+    //sparsowanie na obiekt javascript
+    return JSON.parse(getIt);
+}
+
+
