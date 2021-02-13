@@ -110,28 +110,28 @@ h1 {
 
 .more {
     cursor:default;
-    height: 80%;
-    width: 60%;
+    height: 75%;
+    width: 55%;
     padding: 0;
     background-color: rgb(255, 255, 255);
     border: solid rgb(172, 172, 172) 1px;
     box-shadow: rgb(0,0,0) 3px 4px 8px;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 20% 20% 20% 40%;
-    grid-template-rows: 15% 10% 10% 10% 10% 10% 10% 25%;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 14% 10% 10% 10% 10% 10% 10% 26%;
     grid-template-areas: 
-    "ti ti ti ti"
-    "zd zd zd bd"
-    "zd zd zd bd"
-    "zd zd zd bd"
-    "zd zd zd bd"
-    "zd zd zd bd"
-    "zd zd zd bd"
-    "ga lle ry ft";
+    "ti ti"
+    "zd bd"
+    "zd bd"
+    "zd bd"
+    "zd bd"
+    "zd bd"
+    "zd bd"
+    "galeria ft";
 }
 
-.exit{
+.exit {
     z-index: 1;
     width: 30px;
     background-color: white;
@@ -142,36 +142,58 @@ h1 {
     margin: 10px 10px auto auto;
 }
 
+.galeria-wrapper {
+    grid-area: galeria;
+    /* background-color: yellow; */
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    grid-area: galeria;
+    /* background-color: red; */
+    max-width: 83%;
+    height: 85%;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    order: 2;
+}
+
 .gal {
     box-sizing: border-box;
     height: 115px;
-    max-width: 90%;
-    border: solid 5px rgb(185, 185, 185);
-    margin: auto;
+    max-width: 50%;
+    border: solid 1px rgb(0, 0, 0);
     opacity: 0.6;
     object-fit: cover;
+    margin:0 5px 0 5px;
 }
 
-.img-gal {
-    grid-area: ga;
-    margin-right: 1px;
+.arrows {
+    max-height: 45px;
+    opacity: 0.6;
+    transition: 0.3s;
 }
 
-.img-lle {
-    grid-area: lle;
+.arrow-l {
+    order: 1;
 }
 
-.img-ry {
-    grid-area: ry;
-    margin-left: 1px;
+.arrow-r {
+    order: 3;
 }
 
 .letters-more {
     font-size: 18px;
     grid-area: bd bd bd bd bd bd;
     margin: 0;
-    padding: 0;
-    padding-left: 50px;
+    padding: 20px 0 0 50px;
+    /* padding-left: 50px; */
+    /* justify-content: center; */
 }
 
 .name-grid{
@@ -181,10 +203,11 @@ h1 {
 }
 
 .photo-modal {
-    max-height: 350px;
+    max-height: 340px;
     max-width: 95%;
     grid-area: zd;
     margin: auto;
+    padding: 0;
 }
 
 .add:hover, .add-modal:hover, .exit:hover, .gal:hover {
@@ -193,5 +216,27 @@ h1 {
 }
 
 .gal:hover {
-    border-color: rgb(231, 231, 231);
+    opacity: 1;
 }
+
+.arrows:hover {
+    cursor: pointer;
+    opacity: 1;
+    max-height: 50px;
+}
+
+.active {
+    opacity: 1;
+}
+
+.unavailable {
+    background-color : lightgrey;
+    box-shadow: none;
+    border-color: lightgrey;
+    color: grey;
+    pointer-events: none;
+}
+
+/* .unavailable:hover {
+    cursor: not-allowed;
+} */
