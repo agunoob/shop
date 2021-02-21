@@ -3,6 +3,7 @@ body {
     padding: 0px;
     font-family: 'Niramit', sans-serif;
     background: url('../pictures/background/background.png');
+    cursor: default;
 }
 
 a {
@@ -15,6 +16,7 @@ a {
 }
 
 .cart {
+    /* position: absolute; */
     width: 40px;
 }
 
@@ -33,7 +35,7 @@ h1 {
 }
 
 #products-box {
-    height: 1600px;
+    height: min-content;
     width: 70%;
     margin: 80px auto 40px;
     padding: 0px;
@@ -47,10 +49,10 @@ h1 {
 }
 
 .product {
-    margin: auto;
+    margin: 20px auto;
     height: 450px;
     width: 50%;
-    padding: 0px;
+    padding: 0;
     background-color: rgba(255, 255, 255, 0.55);
     border: solid rgb(172, 172, 172) 1px;
     box-shadow: rgb(170, 103, 79) 3px 4px 8px;
@@ -73,7 +75,7 @@ h1 {
 .add-modal {
     box-sizing: border-box;
     background-color: rgb(0, 255, 0);
-    width: 150px;
+    max-width: 150px;
     box-shadow: slategrey 3px 3px 4px;
     border-radius: 10px;
     text-align: center;
@@ -119,10 +121,9 @@ h1 {
     border-radius: 10px;
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 14% 10% 10% 10% 10% 10% 10% 26%;
+    grid-template-rows: 16% 12% 12% 12% 12% 12% 24%;
     grid-template-areas: 
     "ti ti"
-    "zd bd"
     "zd bd"
     "zd bd"
     "zd bd"
@@ -165,10 +166,10 @@ h1 {
 
 .gal {
     box-sizing: border-box;
-    height: 115px;
+    height: 100px;
     max-width: 50%;
     border: solid 1px rgb(0, 0, 0);
-    opacity: 0.6;
+    opacity: 0.5;
     object-fit: cover;
     margin:0 5px 0 5px;
 }
@@ -189,11 +190,9 @@ h1 {
 
 .letters-more {
     font-size: 18px;
-    grid-area: bd bd bd bd bd bd;
+    grid-area: bd bd bd bd bd;
     margin: 0;
     padding: 20px 0 0 50px;
-    /* padding-left: 50px; */
-    /* justify-content: center; */
 }
 
 .name-grid{
@@ -237,6 +236,15 @@ h1 {
     pointer-events: none;
 }
 
-/* .unavailable:hover {
-    cursor: not-allowed;
+button:focus{
+    outline: none;
+}
+
+/* .ile-elementow {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: red;
 } */
